@@ -22,5 +22,5 @@ Il ne reste plus qu'a ajouter la base de données sur le conteneur avec cette co
 k -n default exec -it $(k get pod -l io.kompose.service=db -o jsonpath='{.items[0].metadata.name}') -- mysql -u root -proot < gestion_produits.sql
 
 Pour ce qui est de la scalabilité horizontal dans kubernetes est intégré une option qui permet de le gérer automatiquement. 
-Pour cela il suffit de définir les replicas avec un minimum et un maximum avec des règles sur les metrics comme les CPU utilisé ou la mémoire.
+Pour cela il suffit de définir les replicas avec un minimum et un maximum avec des règles sur les metrics comme les CPU utilisé ou la mémoire. Il faudra aussi pour cela avoir une base de donnée MongoDB, bien plus adapté que MySql pour la réplication
 Je n'ai pas réussi à mettre en place ceci.
